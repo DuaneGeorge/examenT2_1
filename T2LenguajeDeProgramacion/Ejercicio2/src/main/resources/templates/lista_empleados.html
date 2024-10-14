@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Empleados</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"></head>
+<body>
+    <div class="container mt-5">
+        <h2>Lista de Empleados</h2>
+        <a th:href="@{/producto/registrar_producto}" class="btn btn-primary">Registrar</a>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>DNI Empleado</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Dirección</th>
+                    <th>Correo</th>
+                    <th>Area</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="empleado : ${listaempleado}">
+                    <td th:text="${empleado.dniEmpleado}"></td>
+                    <td th:text="${empleado.nombre_empleado}"></td>
+                    <td th:text="${empleado.apellido_empleado}"></td>
+                    <td th:text="${empleado.fecha_nacimiento}"></td>
+                    <td th:text="${empleado.direccion}"></td>
+                    <td th:text="${empleado.correo}"></td>
+                    <td th:text="${empleado.areaEntity.nombreArea}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
